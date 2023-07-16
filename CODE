@@ -1,0 +1,36 @@
+# Code for web-scraping
+#continent dataset
+html = read_html("https://statisticstimes.com/geography/countries-by-continents.php")
+
+name = html_table(html)
+
+
+name[[1]]
+name[[2]]
+name[[3]]
+
+continent = name[[3]]
+
+
+save(continent , file = "continent.Rdata")
+
+load("continent.Rdata")
+
+#literacy rate
+html = read_html("https://en.wikipedia.org/wiki/List_of_countries_by_literacy_rate")
+
+table = html_table(html)
+
+lit.rate = table[[3]]
+
+save(lit.rate, file = "Literacyrate.Rdata")
+
+#poverty
+
+html = read_html("https://www.indexmundi.com/g/r.aspx?v=69")
+
+table = html_table(html)
+
+pov.rate = table[[3]]
+
+save(pov.rate, file = "Povertyrate.Rdata")
